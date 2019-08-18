@@ -1,0 +1,1 @@
+dtg = datetime.datetime.now()
