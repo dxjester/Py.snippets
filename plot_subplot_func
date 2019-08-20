@@ -1,0 +1,31 @@
+# def four sub plot function (df, x_val, y_val):
+
+  temp_df = df[[x_val, y_val]]
+  temp_df = temp_df.groupby(x_val).sum().resent_index()
+  
+  x_val = temp_df[x_val]
+  y_val = temp_df[y_val]
+  
+  fig = plt.figure(figsize=(15,10))
+  ax1 = fig.add_subplot(221)
+  ax2 = fig.add_subplot(222)
+  ax3 = fig.add_subplot(223)
+  ax4 = fig.add_subplot(224)
+  
+  ax1.plot(x_val, y_val)
+  ax1.set_title('Plot 1')
+  ax1.yaxis.get_offset_text().set_visible(False)
+ 
+  ax2.plot(x_val, y_val)
+  ax2.set_title('Plot 2')
+  ax2.yaxis.get_offset_text().set_visible(False)
+ 
+  ax3.plot(x_val, y_val)
+  ax3.set_title('Plot 3')
+  ax3.yaxis.get_offset_text().set_visible(False)
+ 
+  ax4.plot(x_val, y_val)
+  ax4.set_title('Plot 4')
+  ax4.yaxis.get_offset_text().set_visible(False)
+  
+  plt.show
