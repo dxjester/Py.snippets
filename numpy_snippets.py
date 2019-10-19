@@ -38,4 +38,40 @@ print(m_array.ndim) # Print number of dimensions of array - '2'
 print(m_array.shape) # Print shape of array - '3 (y axis for array),4 (x axis for array' 
 print(len (m_array)) # Print length of array - '3' (for 3 x lists)
 
-# Create a multi-dimensional array - example 2
+# initialize structured matrices
+print (np.zeros((3,4)))
+print (np.eye(3))
+print(np.diag([1, 2, 3]))
+
+A = np.empty((3, 4)) # An "empty" 3 x 4 matrix
+print(A)
+
+# 10.1: Matrix slicing 
+print (m_array)
+slice_list = m_array[0,2,:]
+print(slice_list)
+
+# 10.2: Slicing an array
+Z= np.array([[0,1,2,3,4,5],[10,11,12,13,14,15],[20,21,22,23,24,25],[30,31,32,33,34,35],[40,41,42,43,44,45],[50,51,52,53,54,55]])
+
+# Construct `Z_green`, `Z_red`, `Z_orange`, and `Z_cyan`:
+
+Z_orange = Z[0, 3:5]
+Z_red = Z[:, 2]
+Z_green = Z[2::2, :2]  # starting at row 2, increment every 2 x-axis rows, 
+Z_cyan = Z[4:, 4:]
+
+print(Z_green)
+
+# Indirect addressing
+np.random.seed(3)
+x =np.random.randint(0,20,15)
+print(x)
+
+# pull out random subsets
+indexes = np.array([3,7,8,12])
+print(x[indexes])
+
+# create a boolean mask
+mask_mult_3 = (x >0) & (x % 3 == 0)
+print(mask_mult_3)
