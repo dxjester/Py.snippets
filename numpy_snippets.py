@@ -25,7 +25,7 @@ np.arange(10) # Moral equivalent to `range`
 A = np.arange(n)
 %timeit A**2
 
-# Create a multi-dimensional array 
+# Create a multi-dimensional array - example 1
 m_array = np.array([
         [0,1,2,3],
         [4,5,6,7],
@@ -34,3 +34,8 @@ m_array = np.array([
 
 print(m_array)
 
+print(m_array.ndim) # Print number of dimensions of array - '2'
+print(m_array.shape) # Print shape of array - '3 (y axis for array),4 (x axis for array' 
+print(len (m_array)) # Print length of array - '3' (for 3 x lists)
+
+# Create a multi-dimensional array - example 2
