@@ -30,4 +30,28 @@ def find_two_away(code, df):
 def calc_who_switched(Drugs):
     who_switched = Drugs.groupby(['ID'])['Med'].unique().to_frame(name='Unique Med')
     return who_switched
-    
+
+# CATEGORY: numpy, array, convert, datatype
+# convert array data type
+B = np.array([[False, True,  False],
+              [False, False, True],
+              [True,  True,  False]])
+
+A = B.astype(int)
+print(A)
+
+# CATEGORY: scipy, coo_matrix, matrix, numpy
+# initialize an integer boolean (1,0) array
+def make_board(coords_df, n=50):
+    ### BEGIN SOLUTION
+    row = coords_df['x']
+    col = coords_df['y']
+    val = [1] * len(row)
+    board = coo_matrix((val, (row, col)), shape=(n, n))
+    board = board.toarray()
+    return board
+
+# CATEGORY: plot, seaborn, pair plot
+# plots 5 x 5 pair plot of a given dataframe
+import seaborn as sns
+sns.pairplot(filtered_data[['revenue','budget','popularity', 'vote_average','vote_count']])
