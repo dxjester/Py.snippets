@@ -69,3 +69,13 @@ ax = fig.add_subplot(111)
 ax.scatter(x,y, color='red', linewidth=3)
 ax.set(title='Scatterplot',  ylabel='i-squared', xlabel='2 * i')
 plt.show()
+
+# CATEGORY: time, date, datetime, calendar, for loop, iterate
+from dateutil import rrule
+from datetime import datetime, timedelta
+
+now = datetime.now()
+hundredDaysLater = now + timedelta(days=100)
+
+for dt in rrule.rrule(rrule.MONTHLY, dtstart=now, until=hundredDaysLater):
+    print(dt)
