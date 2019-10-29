@@ -55,3 +55,17 @@ def make_board(coords_df, n=50):
 # plots 5 x 5 pair plot of a given dataframe
 import seaborn as sns
 sns.pairplot(filtered_data[['revenue','budget','popularity', 'vote_average','vote_count']])
+
+# CATEGORY: plot, seaborn, pair plot
+# plots a scatterplot
+import matplotlib.pyplot as plt
+import numpy as np
+import random 
+
+x = [2*i for i in range(10)]
+y = [i**2 for i in range(10)]
+fig = plt.figure(figsize = (10,6))
+ax = fig.add_subplot(111)
+ax.scatter(x,y, color='red', linewidth=3)
+ax.set(title='Scatterplot',  ylabel='i-squared', xlabel='2 * i')
+plt.show()
