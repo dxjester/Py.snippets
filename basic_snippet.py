@@ -79,3 +79,15 @@ hundredDaysLater = now + timedelta(days=100)
 
 for dt in rrule.rrule(rrule.MONTHLY, dtstart=now, until=hundredDaysLater):
     print(dt)
+
+# CATEGORY: time, date, datetime, calendar, for loop, iterate    
+# calcuate start and end times
+import time
+
+start = time.time()
+print("hello")
+end = time.time()
+
+# CATEGORY: log, logging, debu
+print(end - start)
+    
