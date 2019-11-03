@@ -15,10 +15,14 @@ def set_check_in_df(set_var, df, df_col_name):
     matches = df[df_col_name].apply(lambda x: x in set_var)
     return df[matches]
 
+
+
 # CATEGORY: string, char, manipulation, slicing
 def find_description(str_var, df, df_col_name):
     matches = df[df_col_name].str.contains(str_var)
     return df[matches]
+
+
 
 # CATEGORY: dataframe, merge, column
 def find_two_away(code, df):
@@ -26,10 +30,14 @@ def find_two_away(code, df):
     two_away = one_away.merge(df, left_on = 'DEST_AIRPORT_ID', right_on = 'ORIGIN_AIRPORT_ID')
     return set(two_away['DEST_AIRPORT_ID_y'])
 
+
+
 # CATEGORY: dataframe, pandas, convert
 def calc_who_switched(Drugs):
     who_switched = Drugs.groupby(['ID'])['Med'].unique().to_frame(name='Unique Med')
     return who_switched
+
+
 
 # CATEGORY: numpy, array, convert, datatype
 # convert array data type
@@ -51,10 +59,14 @@ def make_board(coords_df, n=50):
     board = board.toarray()
     return board
 
+
+
 # CATEGORY: plot, seaborn, pair plot
 # plots 5 x 5 pair plot of a given dataframe
 import seaborn as sns
 sns.pairplot(filtered_data[['revenue','budget','popularity', 'vote_average','vote_count']])
+
+
 
 # CATEGORY: plot, seaborn, pair plot
 # plots a scatterplot
@@ -70,6 +82,8 @@ ax.scatter(x,y, color='red', linewidth=3)
 ax.set(title='Scatterplot',  ylabel='i-squared', xlabel='2 * i')
 plt.show()
 
+
+
 # CATEGORY: time, date, datetime, calendar, for loop, iterate
 from dateutil import rrule
 from datetime import datetime, timedelta
@@ -80,6 +94,8 @@ hundredDaysLater = now + timedelta(days=100)
 for dt in rrule.rrule(rrule.MONTHLY, dtstart=now, until=hundredDaysLater):
     print(dt)
 
+
+
 # CATEGORY: time, date, datetime, calendar, for loop, iterate    
 # calcuate start and end times
 import time
@@ -88,6 +104,14 @@ start = time.time()
 print("hello")
 end = time.time()
 
-# CATEGORY: log, logging, debu
-print(end - start)
-    
+# CATEGORY: user input, user, prompt, integer
+# prompt a user for an input
+size = int(input("Enter a number: "))
+size = float(input("Enter a number: "))
+
+# CATEGORY: random, randomize, integer
+# create a randomized list of integers
+from numpy.random import seed
+from numpy.random import randint
+values = randint(0, 50, 100)
+print (values)
