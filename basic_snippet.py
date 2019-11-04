@@ -115,3 +115,12 @@ from numpy.random import seed
 from numpy.random import randint
 values = randint(0, 50, 100)
 print (values)
+
+# CATEGORY: lambda, function, boolean, apply, lambda function
+# assign a boolean value in a new calculate column base on a given column's values
+who_switched['Med A->B?'] = who_switched.apply(lambda x: 1 if len(x['Unique Med'])==2 else 0,axis=1)
+
+# CATEGORY: Pearson, correlation, coefficient, numpy
+def corr_coeff(col1,col2):
+    import numpy as np
+    return np.corrcoef(col1, col2)[0,1]
