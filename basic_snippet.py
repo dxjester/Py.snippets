@@ -124,3 +124,7 @@ who_switched['Med A->B?'] = who_switched.apply(lambda x: 1 if len(x['Unique Med'
 def corr_coeff(col1,col2):
     import numpy as np
     return np.corrcoef(col1, col2)[0,1]
+
+# CATEGORY: format, formatting
+print('The dataset has {} rows.'.format(len(credit))) 
+credit.head()
