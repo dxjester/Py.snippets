@@ -132,3 +132,34 @@ print('The dataset has {} rows.'.format(len(credit)))
 # split a column value (i.e. '8.9 1/1/2020') into two separate columns using regex
 df_copy['test_value'] = df['result_date_taken'].str.extract(r'(\d+\.?\d+)').astype(np.float64) 
 df_copy['date_taken'] = df['result_date_taken'].str.extract(r'(\d+[-/]\d+[-/]\d+)') 
+
+# CATEGORY: sort, sorting, pandas, dataframe, column, columns, 
+# sort a dataframe by a list of columns
+desired_cols = ['avg','team']
+desired_cols.sort()
+
+# CATEGORY: column, rename, dataframe, header
+# rename dataframe columns
+home_df.rename(columns = {'home_diff':'differential'}, inplace = False) 
+
+# CATEGORY: numpy, apply, function, conditional, compare, comparison, where
+# numpy's where function to assign values given a column value
+copy_df['winner'] = np.where(copy_df.goal_diff > 0, copy_df.home_team, copy_df.away_team)
+
+# CATEGORY: round, number, math
+# round a quantifiable value
+sorted_df = sorted_df.round(3)
+
+# CATEGORY: regex, regular, regular expression, expression, filter, column, panda, dataframe
+# utilize a regex function to remove columns containing a specific value
+data = df[df.columns.drop(list(df.filter(regex='OTHER')))]
+data_header = df_header[df_header.columns.drop(list(df.filter(regex='OTHER')))]
+print ("\n".join(data.columns))
+
+# CATEGORY: delete, column, panda, dataframe
+# delete a column name in a pandas dataframe
+del df14_work['Q6']
+
+# CATEGORY: mask, dataframe, panda
+# filter a dataframe based on a mask
+df = df[~df['onsale_dt'].isnull()]
