@@ -127,4 +127,8 @@ def corr_coeff(col1,col2):
 
 # CATEGORY: format, formatting
 print('The dataset has {} rows.'.format(len(credit))) 
-credit.head()
+
+# CATEGORY: regex, split, pandas, column
+# split a column value (i.e. '8.9 1/1/2020') into two separate columns using regex
+df_copy['test_value'] = df['result_date_taken'].str.extract(r'(\d+\.?\d+)').astype(np.float64) 
+df_copy['date_taken'] = df['result_date_taken'].str.extract(r'(\d+[-/]\d+[-/]\d+)') 
