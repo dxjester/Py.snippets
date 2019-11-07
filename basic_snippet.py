@@ -159,7 +159,38 @@ print ("\n".join(data.columns))
 # CATEGORY: delete, column, panda, dataframe
 # delete a column name in a pandas dataframe
 del df14_work['Q6']
+df3 = df3.drop(['venue_state'], axis=1)
 
 # CATEGORY: mask, dataframe, panda
 # filter a dataframe based on a mask
 df = df[~df['onsale_dt'].isnull()]
+
+# CATEGORY: impute, fillna, nan, NaN, null, dataframe
+# impute missing nan / null values in a dataframe
+df40.fillna(0, inplace = True)
+
+# CATEGORY: pivot, panda, dataframe, transpose
+# pivot a dataframe
+df40_pivot = df40.pivot(index='userId', columns='movieId', values='rating')
+df40_array = df40_pivot.values
+
+# CATEGORY: type change, data, type, dtype
+# change a column's data type
+df40_reset['userId'] = df40_reset['userId'].astype(int)
+
+# CATEGORTY: dictionary, comprehension
+# dictionary comprehension
+user_id_index = {c: i for i, c in enumerate(df40_reset['userId'])}
+
+# CATEGORY: dictionary, append, 
+# fill dictionary value with for loop
+from collections import defaultdict
+cosine_dict = defaultdict()
+cosine_val = 0
+for user_id,user_index in dict42.items():
+    #print(str(user_id)+': '  + str(user_index))
+    #print(matrix[user_index])
+    vector_user = matrix[user_index]
+    cosine_val = cosine(user22_vector, vector_user)
+    cosine_dict[user_id] = cosine_val
+
