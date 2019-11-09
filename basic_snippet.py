@@ -197,3 +197,15 @@ for user_id,user_index in dict42.items():
 # CATEGORY: panda, pandas, dataframe
 # return cell value (with row and column) in dataframe
 sub_df.iloc[0]['A']
+
+
+# CATEGORY: plot, scatter, panda, dataframe, scatterplot
+# plot a simple scatter plot
+from matplotlib.pyplot import scatter, xlabel, ylabel, title,plot
+x = [0,1,2,3,4,5,6,7,8,9,10]
+y = [i**2 for i in x]
+
+scatter(x,y)
+xlabel("X Value")
+ylabel("Y Value")
+title("Scatterplot Plot")
