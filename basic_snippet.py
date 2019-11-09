@@ -194,3 +194,6 @@ for user_id,user_index in dict42.items():
     cosine_val = cosine(user22_vector, vector_user)
     cosine_dict[user_id] = cosine_val
 
+# CATEGORY: panda, pandas, dataframe
+# return cell value (with row and column) in dataframe
+sub_df.iloc[0]['A']
