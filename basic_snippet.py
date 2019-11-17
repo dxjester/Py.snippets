@@ -209,3 +209,10 @@ scatter(x,y)
 xlabel("X Value")
 ylabel("Y Value")
 title("Scatterplot Plot")
+
+
+# CATEGORY: time, calculation, timeit
+# calculate the time for an operation to complete
+n = 100000
+L = range(n)
+%timeit [i**2 for i in L]
