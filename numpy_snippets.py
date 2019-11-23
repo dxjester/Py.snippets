@@ -92,7 +92,6 @@ A_rowmaj = np.ones((n, n), order='C') # row-major (C/C++ convention)
 
 # CATEGORY: row, major, row major
 # DESCRIPTION: map out index values from a m x n row major matrix to a linear matrix
-
 def linearize_rowmajor(i, j, m, n): # calculate `v`
     """
     Returns the linear index for the `(i, j)` entry of
@@ -103,3 +102,36 @@ def linearize_rowmajor(i, j, m, n): # calculate `v`
 n = 5000
 A_colmaj = np.ones((n, n), order='F') # column-major (Fortran convention)
 A_rowmaj = np.ones((n, n), order='C') # row-major (C/C++ convention)
+
+
+# CATEGORY: matrix, matrices, calculation
+# DESCRIPTION: add two matrices
+import numpy as np
+a = np.array([[2,4], [5,-6]])
+b = np.array([[9,-3], [3,6]])
+
+print("'a' array:\n ", a)
+print("'b' array:\n ", b)
+
+c_add = a+ b
+print (c_add)
+
+c_subtract = a - b
+print (c_subtract)
+
+c_multiply = a * b
+print(c_multiply)
+
+c_divide = a / b
+print(c_divide)
+
+
+# CATEGORY: matrix, dot, matrices, multiplication
+# DESCRIPTION: utilize the dot function to multiply two matrices
+import numpy.matlib 
+import numpy as np 
+
+a = np.array([[1,2], [3,4]])
+b = np.array([[11,12], [13,14]])
+print(np.dot(a,b))
+# [[1*11+2*13, 1*12+2*14],[3*11+4*13, 3*12+4*14]]
