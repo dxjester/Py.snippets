@@ -85,6 +85,11 @@ def linearize_colmajor(i, j, m, n): # calculate `u`
     """
     return i + j*m
 
+n = 5000
+A_colmaj = np.ones((n, n), order='F') # column-major (Fortran convention)
+A_rowmaj = np.ones((n, n), order='C') # row-major (C/C++ convention)
+
+
 # CATEGORY: row, major, row major
 # DESCRIPTION: map out index values from a m x n row major matrix to a linear matrix
 
@@ -94,5 +99,7 @@ def linearize_rowmajor(i, j, m, n): # calculate `v`
     an `m`-by-`n` matrix stored in row-major order.
     """
     return i*n + j
-    """
-    return i + j*m
+
+n = 5000
+A_colmaj = np.ones((n, n), order='F') # column-major (Fortran convention)
+A_rowmaj = np.ones((n, n), order='C') # row-major (C/C++ convention)
