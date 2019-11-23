@@ -147,43 +147,43 @@ home_df.rename(columns = {'home_diff':'differential'}, inplace = False)
 copy_df['winner'] = np.where(copy_df.goal_diff > 0, copy_df.home_team, copy_df.away_team)
 
 # CATEGORY: round, number, math
-# round a quantifiable value
+# DESCRIPTION:round a quantifiable value
 sorted_df = sorted_df.round(3)
 
 # CATEGORY: regex, regular, regular expression, expression, filter, column, panda, dataframe
-# utilize a regex function to remove columns containing a specific value
+# DESCRIPTION: utilize a regex function to remove columns containing a specific value
 data = df[df.columns.drop(list(df.filter(regex='OTHER')))]
 data_header = df_header[df_header.columns.drop(list(df.filter(regex='OTHER')))]
 print ("\n".join(data.columns))
 
 # CATEGORY: delete, column, panda, dataframe
-# delete a column name in a pandas dataframe
+# DESCRIPTION: delete a column name in a pandas dataframe
 del df14_work['Q6']
 df3 = df3.drop(['venue_state'], axis=1)
 
 # CATEGORY: mask, dataframe, panda
-# filter a dataframe based on a mask
+# DESCRIPTION: filter a dataframe based on a mask
 df = df[~df['onsale_dt'].isnull()]
 
 # CATEGORY: impute, fillna, nan, NaN, null, dataframe
-# impute missing nan / null values in a dataframe
+# DESCRIPTION: impute missing nan / null values in a dataframe
 df40.fillna(0, inplace = True)
 
 # CATEGORY: pivot, panda, dataframe, transpose
-# pivot a dataframe
+# DESCRIPTION: pivot a dataframe
 df40_pivot = df40.pivot(index='userId', columns='movieId', values='rating')
 df40_array = df40_pivot.values
 
 # CATEGORY: type change, data, type, dtype
-# change a column's data type
+# DESCRIPTION: change a column's data type
 df40_reset['userId'] = df40_reset['userId'].astype(int)
 
 # CATEGORTY: dictionary, comprehension
-# dictionary comprehension
+# DESCRIPTION: dictionary comprehension
 user_id_index = {c: i for i, c in enumerate(df40_reset['userId'])}
 
 # CATEGORY: dictionary, append, 
-# fill dictionary value with for loop
+# DESCRIPTION: fill dictionary value with for loop
 from collections import defaultdict
 cosine_dict = defaultdict()
 cosine_val = 0
@@ -195,12 +195,12 @@ for user_id,user_index in dict42.items():
     cosine_dict[user_id] = cosine_val
 
 # CATEGORY: panda, pandas, dataframe
-# return cell value (with row and column) in dataframe
+# DESCRIPTION: return cell value (with row and column) in dataframe
 sub_df.iloc[0]['A']
 
 
 # CATEGORY: plot, scatter, panda, dataframe, scatterplot
-# plot a simple scatter plot
+# DESCRIPTION: plot a simple scatter plot
 from matplotlib.pyplot import scatter, xlabel, ylabel, title,plot
 x = [0,1,2,3,4,5,6,7,8,9,10]
 y = [i**2 for i in x]
@@ -212,7 +212,12 @@ title("Scatterplot Plot")
 
 
 # CATEGORY: time, calculation, timeit
-# calculate the time for an operation to complete
+# DESCRIPTION: calculate the time for an operation to complete
 n = 100000
 L = range(n)
 %timeit [i**2 for i in L]
+
+# CATEGORY: for, loop, range
+# DESCRIPTION: use a left and right parameter for range function
+for k in range(2, int(sqrt(n))+1):
+    is_prime[2*k::k] = False
