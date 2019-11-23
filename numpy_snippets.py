@@ -75,3 +75,24 @@ print(x[indexes])
 # create a boolean mask
 mask_mult_3 = (x >0) & (x % 3 == 0)
 print(mask_mult_3)
+
+# CATEGORY: column, major, column major
+# DESCRIPTION: map out index values from a m x n column major matrix to a linear matrix
+def linearize_colmajor(i, j, m, n): # calculate `u`
+    """
+    Returns the linear index for the `(i, j)` entry of
+    an `m`-by-`n` matrix stored in column-major order.
+    """
+    return i + j*m
+
+# CATEGORY: row, major, row major
+# DESCRIPTION: map out index values from a m x n row major matrix to a linear matrix
+
+def linearize_rowmajor(i, j, m, n): # calculate `v`
+    """
+    Returns the linear index for the `(i, j)` entry of
+    an `m`-by-`n` matrix stored in row-major order.
+    """
+    return i*n + j
+    """
+    return i + j*m
