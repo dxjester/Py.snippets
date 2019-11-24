@@ -230,3 +230,8 @@ segment_groups = flights_cols_subset.groupby(['ORIGIN_AIRPORT_ID', 'DEST_AIRPORT
 segments = segment_groups.count()
 segments.rename(columns={'FL_DATE': 'FL_COUNT'}, inplace=True)
 segments.head()
+
+
+# CATEGORY: pandas, panda, rename, column,
+# DESCRIPTION: rename columns in pandas dataframe
+dests.rename(columns={'FL_COUNT': 'DEST_COUNT'}, inplace=True)
