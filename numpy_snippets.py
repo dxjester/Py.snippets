@@ -141,3 +141,12 @@ print(np.dot(a,b))
 # DESCRIPTION: create an empty dataframe with only column  names
 import pandas as pd
 df = pd.DataFrame(columns=['A','B','C','D','E','F','G'])
+
+
+
+# CATEGORY: numpy, indices, find zero, zero, 
+# DESCRIPTION: Find the indices of array elements that are non-zero, grouped by element.
+import numpy as np
+x = np.arange(6).reshape(2,3)
+x
+np.argwhere(x>1)
