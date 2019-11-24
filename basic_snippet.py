@@ -221,3 +221,12 @@ L = range(n)
 # DESCRIPTION: use a left and right parameter for range function
 for k in range(2, int(sqrt(n))+1):
     is_prime[2*k::k] = False
+    
+
+# CATEGORY: pandas, panda, groupby , count , column, 
+# DESCRIPTION: retrieve specific columns, aggregate and group by to get counts
+flights_cols_subset = flights[['FL_DATE', 'ORIGIN_AIRPORT_ID', 'DEST_AIRPORT_ID']]
+segment_groups = flights_cols_subset.groupby(['ORIGIN_AIRPORT_ID', 'DEST_AIRPORT_ID'], as_index=False)
+segments = segment_groups.count()
+segments.rename(columns={'FL_DATE': 'FL_COUNT'}, inplace=True)
+segments.head()

@@ -135,3 +135,9 @@ a = np.array([[1,2], [3,4]])
 b = np.array([[11,12], [13,14]])
 print(np.dot(a,b))
 # [[1*11+2*13, 1*12+2*14],[3*11+4*13, 3*12+4*14]]
+
+
+# CATEGORY: pandas, panda, dataframe, column, names, header
+# DESCRIPTION: create an empty dataframe with only column  names
+import pandas as pd
+df = pd.DataFrame(columns=['A','B','C','D','E','F','G'])
