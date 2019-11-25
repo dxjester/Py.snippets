@@ -296,3 +296,37 @@ r"ain\B"
 str = "The rain in Spain"
 x = re.findall("ai", str)
 print(x)
+
+str = "The rain in Spain"
+
+#Check if "Portugal" is in the string:
+
+x = re.findall("Portugal", str)
+print(x)
+
+if (x):
+  print("Yes, there is at least one match!")
+else:
+  print("No match")
+  
+
+str = "The rain in Spain"
+x = re.search("\s", str)
+
+print("The first white-space character is located in position:", x.start()) 
+
+
+# split at each whitespace character
+str = "The rain in Spain"
+x = re.split("\s", str)
+print(x)
+
+# split only at the first occurence
+str = "The rain in Spain"
+x = re.split("\s", str, 1)
+print(x)
+
+# use the sub function to replace whitespace character w/ '9'
+str = "The rain in Spain"
+x = re.sub("\s", "9", str)
+print(x)
