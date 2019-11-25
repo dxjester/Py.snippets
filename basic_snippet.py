@@ -277,8 +277,7 @@ $	Ends with	"world$"
 
 '''
 \A	Returns a match if the specified characters are at the beginning of the string	"\AThe"	
-\b	Returns a match where the specified characters are at the beginning or at the end of a word	r"\bain"
-r"ain\b"	
+\b	Returns a match where the specified characters are at the beginning or at the end of a word	r"\bain"r"ain\b"	
 \B	Returns a match where the specified characters are present, but NOT at the beginning (or at the end) of a word	r"\Bain"
 r"ain\B"	
 \d	Returns a match where the string contains digits (numbers from 0-9)	"\d"	
@@ -330,3 +329,21 @@ print(x)
 str = "The rain in Spain"
 x = re.sub("\s", "9", str)
 print(x)
+
+str = "The rain in Spain"
+x = re.search(r"\bS\w+", str)
+print(x)
+
+# CATEGORY: json, dictionary, convert, conversion
+# DESCRIPTION: convert a Python dictionary to a JSON file
+import json
+
+# a Python object (dict):
+x = {
+  "name": "John",
+  "age": 30,
+  "city": "New York"
+}
+
+# convert into JSON:
+y = json.dumps(x)
