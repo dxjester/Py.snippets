@@ -13,6 +13,13 @@ print(a)
 
 n = 1000000
 
+# CATEGORY: numpy, random, random int, create
+# DESCRIPTION: Create a random numpy array
+import numpy as np
+my_array = np.random.randint(100, size =(10,10))
+print(my_array)
+
+
 # Exercise 10.0 -------------------------------------------- #
 
 # Test time for creating i^2 calculation via list call
@@ -156,3 +163,17 @@ np.argwhere(x>1)
 from numpy import linspace, meshgrid
 x0 = linspace(-2,2,11)
 x1 = linspace(-2,2,11)
+
+X0, X1 = meshgrid(x0, x1)
+
+# CATEGORY: numpy, colvec, transpose, vector, transform
+# DESCRIPTION: Convert a vector from a row format to a column format
+import numpy as np
+z_array = np.array([1,2,3,4,5])
+print(z_array)
+
+z_colvec = np.reshape(z_array, (len(z_array), 1))
+print(z_colvec)
+
+
+# 
