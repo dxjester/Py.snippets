@@ -16,8 +16,31 @@ n = 1000000
 # CATEGORY: numpy, random, random int, create
 # DESCRIPTION: Create a random numpy array
 import numpy as np
-my_array = np.random.randint(100, size =(10,10))
-print(my_array)
+ray_1 = np.random.randint(10, size =(3,3,3))
+print(ray_1)
+
+ray_1.shape # return shape of array
+ray_1.dtype.name # returns data type of array
+
+ray_2 = np.random.randint(5, size=(3,3,3))
+print(ray_2)
+
+ray_add = ray_1 + ray_2
+print(ray_add)
+
+ray_minus = ray_1 - ray_2
+print(ray_minus)
+
+ray_multiply = ray_1 * ray_2
+print(ray_multiply)
+
+ray_exp = ray_1 ** ray_2
+print(ray_exp)
+
+ray_1
+ray_1.T
+
+
 
 
 # Exercise 10.0 -------------------------------------------- #
