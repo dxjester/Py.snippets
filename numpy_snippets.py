@@ -40,6 +40,8 @@ print(ray_exp)
 ray_1
 ray_1.T
 
+ray_1.sum()
+ray_1.min()
 
 
 
@@ -199,4 +201,38 @@ z_colvec = np.reshape(z_array, (len(z_array), 1))
 print(z_colvec)
 
 
-# 
+# # CATEGORY: scipy, k-means, cluster, clustering, scatterplot
+# DESCRIPTION: Invoke the kmeans2 clustering function
+from scipy.cluster.vq import kmeans2
+import random 
+df_length = 50
+
+float_list = [round(random.uniform(10,0),2) for float in range(df_length)]
+float_list 
+
+int_list = [random.randint(0,100) for int in range(df_length)]
+int_list
+
+df = pd.DataFrame({'float_values':float_list, 'int_values':int_list})
+df
+
+centers, labels = kmeans2(df[['float_values', 'int_values']], k=2)
+
+def make_scatter_plot (df, x="x_1", y="x_2", hue="label",
+                       palette={0: "red", 1: "olive", 2: "blue", 3: "green"},
+                       size=5,
+                       centers=None):
+    from seaborn import lmplot
+    from matplotlib.pyplot import scatter
+    if (hue is not None) and (hue in df.columns):
+        lmplot (x=x, y=y, hue=hue, data=df, palette=palette,
+                fit_reg=False)
+    else:
+        lmplot (x=x, y=y, data=df, fit_reg=False)
+
+    if centers is not None:
+        scatter (centers[:,0], centers[:,1],
+                 marker=u'*', s=500,
+                 c=[palette[0], palette[1]])
+        
+make_scatter_plot (df, x='float_values', y='int_values', centers=centers)
