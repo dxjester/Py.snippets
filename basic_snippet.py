@@ -348,3 +348,8 @@ x = {
 # convert into JSON:
 y = json.dumps(x)
 print(y)
+
+
+# CATEGORY: sql, query, pandas, dataframe, database, connection
+# DESCRIPTION: pass a SQL query through a connection and read in as a pandas dataframe
+Persons = pd.read_sql_query('SELECT * FROM Persons', conn)
