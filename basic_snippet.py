@@ -353,3 +353,15 @@ print(y)
 # CATEGORY: sql, query, pandas, dataframe, database, connection
 # DESCRIPTION: pass a SQL query through a connection and read in as a pandas dataframe
 Persons = pd.read_sql_query('SELECT * FROM Persons', conn)
+
+
+
+# CATEGORY: sql, query, pandas, dataframe, database, connection
+# DESCRIPTION: read in multiple files based on conditional formatting
+master_df = []
+
+for yy in range(11,15):
+    filename = "statoutflow{}{}".format(yy,yy+1)
+    df = pd.read_csv(fn(filename),encoding='latin-1')
+    df['year'] = 2000 +yy
+    alldf.append(df)
