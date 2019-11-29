@@ -364,4 +364,25 @@ for yy in range(11,15):
     filename = "statoutflow{}{}".format(yy,yy+1)
     df = pd.read_csv(fn(filename),encoding='latin-1')
     df['year'] = 2000 +yy
+    
+# CATEGORY: apply, function, filter, mask
+# DESCRIPTION: create a mask, apply to a df and pull only select columns
+def ends_in (pattern, s):
+    import re
+    return re.match ("^.*{}$".format (pattern), s) is not None
+
+def ends_in_total_migration (s):
+    return ends_in ('Total Migration[ -]US and Foreign', s)
+
+def ends_in_non_migrants (s):
+    return ends_in ('Non-migrants', s)
+
+
+migrants = StateOutFlows['y2_state_name'].apply (ends_in_total_migration)
+migrants.head(5)
+
+
+Migrated = StateOutFlows[migrants][['y2_state', 'year', 'n1']] \
+           .rename (columns={'y2_state': 'st', 'n1': 'migrated'})
+Migrated
     alldf.append(df)
