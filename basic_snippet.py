@@ -386,3 +386,21 @@ Migrated = StateOutFlows[migrants][['y2_state', 'year', 'n1']] \
            .rename (columns={'y2_state': 'st', 'n1': 'migrated'})
 Migrated
     alldf.append(df)
+    
+# CATEGORY: list, extend, list of lists, function
+# DESCRIPTION: Invoke the extend function to flatten two lists as a single list
+my_list = ['geeks', 'for'] 
+another_list = [6, 0, 4, 1] 
+my_list.extend(another_list) 
+print(my_list) 
+
+
+# CATEGORY: pandas, panda, dataframe 
+# DESCRIPTION: consolidate all dataframe columns or column as a single array
+# importing pandas as pd 
+import pandas as pd 
+  
+# Creating the DataFrame 
+df = pd.DataFrame({'Weight':[45, 88, 56, 15, 71], 
+                   'Name':['Sam', 'Andrea', 'Alex', 'Robin', 'Kia'], 
+                   'Age':[14, 25, 55, 8, 21]}) 
