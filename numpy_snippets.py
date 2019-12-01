@@ -43,6 +43,13 @@ ray_1.T
 ray_1.sum()
 ray_1.min()
 
+x = np.array([1,2,3,4,5,6,7,8,9])
+
+x_0 = x[:5]
+print(x_0)
+
+x_1 = x[5:]
+print(x_1)
 
 
 # Exercise 10.0 -------------------------------------------- #
@@ -236,3 +243,6 @@ def make_scatter_plot (df, x="x_1", y="x_2", hue="label",
                  c=[palette[0], palette[1]])
         
 make_scatter_plot (df, x='float_values', y='int_values', centers=centers)
+
+
+
