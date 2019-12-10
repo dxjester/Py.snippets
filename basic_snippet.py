@@ -222,6 +222,7 @@ L = range(n)
 for k in range(2, int(sqrt(n))+1):
     is_prime[2*k::k] = False
     
+<<<<<<< HEAD
     
     emails = []
     for items in data:
@@ -243,3 +244,187 @@ def sort_list():
 df = pd.DataFrame({'a':[1,2,3], 'b':[{'c':1}, {'d':3}, {'c':5, 'd':6}]})
 df
 df['b'].apply(pd.Series)
+=======
+
+# CATEGORY: pandas, panda, groupby , count , column, 
+# DESCRIPTION: retrieve specific columns, aggregate and group by to get counts
+flights_cols_subset = flights[['FL_DATE', 'ORIGIN_AIRPORT_ID', 'DEST_AIRPORT_ID']]
+segment_groups = flights_cols_subset.groupby(['ORIGIN_AIRPORT_ID', 'DEST_AIRPORT_ID'], as_index=False)
+segments = segment_groups.count()
+segments.rename(columns={'FL_DATE': 'FL_COUNT'}, inplace=True)
+segments.head()
+
+
+# CATEGORY: pandas, panda, rename, column,
+# DESCRIPTION: rename columns in pandas dataframe
+dests.rename(columns={'FL_COUNT': 'DEST_COUNT'}, inplace=True)
+
+
+
+# CATEGORY: regular, expressions, regex, re
+# DESCRIPTION: Summary of commonly used regex terminology
+import re
+
+txt = "The rain in Spain"
+x = re.search("^The.*Spain$", txt)
+
+if (x):
+  print("YES! We have a match!")
+else:
+  print("No match")
+
+''' 
+Character	Description	Example	Try it
+[]	A set of characters	"[a-m]"	
+\	Signals a special sequence (can also be used to escape special characters)	"\d"	
+.	Any character (except newline character)	"he..o"	
+^	Starts with	"^hello"	
+$	Ends with	"world$"	
+*	Zero or more occurrences	"aix*"	
++	One or more occurrences	"aix+"	
+{}	Exactly the specified number of occurrences	"al{2}"	
+|	Either or	"falls|stays"	
+()	Capture and group	 
+'''
+
+'''
+[arn]	Returns a match where one of the specified characters (a, r, or n) are present	
+[a-n]	Returns a match for any lower case character, alphabetically between a and n	
+[^arn]	Returns a match for any character EXCEPT a, r, and n	
+[0123]	Returns a match where any of the specified digits (0, 1, 2, or 3) are present	
+[0-9]	Returns a match for any digit between 0 and 9	
+[0-5][0-9]	Returns a match for any two-digit numbers from 00 and 59	
+[a-zA-Z]	Returns a match for any character alphabetically between a and z, lower case OR upper case	
+[+]	In sets, +, *, ., |, (), $,{} has no special meaning, so [+] means: return a match for any + character in the string
+'''
+
+'''
+\A	Returns a match if the specified characters are at the beginning of the string	"\AThe"	
+\b	Returns a match where the specified characters are at the beginning or at the end of a word	r"\bain"r"ain\b"	
+\B	Returns a match where the specified characters are present, but NOT at the beginning (or at the end) of a word	r"\Bain"
+r"ain\B"	
+\d	Returns a match where the string contains digits (numbers from 0-9)	"\d"	
+\D	Returns a match where the string DOES NOT contain digits	"\D"	
+\s	Returns a match where the string contains a white space character	"\s"	
+\S	Returns a match where the string DOES NOT contain a white space character	"\S"	
+\w	Returns a match where the string contains any word characters (characters from a to Z, digits from 0-9, and the underscore _ character)	"\w"	
+\W	Returns a match where the string DOES NOT contain any word characters	"\W"	
+\Z	Returns a match if the specified characters are at the end of the string	"Spain\Z"
+
+'''
+
+# CATEGORY: regular, expressions, regex, re
+# DESCRIPTION: find all function
+str = "The rain in Spain"
+x = re.findall("ai", str)
+print(x)
+
+str = "The rain in Spain"
+
+#Check if "Portugal" is in the string:
+
+x = re.findall("Portugal", str)
+print(x)
+
+if (x):
+  print("Yes, there is at least one match!")
+else:
+  print("No match")
+  
+
+str = "The rain in Spain"
+x = re.search("\s", str)
+
+print("The first white-space character is located in position:", x.start()) 
+
+
+# split at each whitespace character
+str = "The rain in Spain"
+x = re.split("\s", str)
+print(x)
+
+# split only at the first occurence
+str = "The rain in Spain"
+x = re.split("\s", str, 1)
+print(x)
+
+# use the sub function to replace whitespace character w/ '9'
+str = "The rain in Spain"
+x = re.sub("\s", "9", str)
+print(x)
+
+str = "The rain in Spain"
+x = re.search(r"\bS\w+", str)
+print(x)
+
+# CATEGORY: json, dictionary, convert, conversion
+# DESCRIPTION: convert a Python dictionary to a JSON file
+import json
+
+# a Python object (dict):
+x = {
+  "name": "John",
+  "age": 30,
+  "city": "New York"
+}
+
+# convert into JSON:
+y = json.dumps(x)
+print(y)
+
+
+# CATEGORY: sql, query, pandas, dataframe, database, connection
+# DESCRIPTION: pass a SQL query through a connection and read in as a pandas dataframe
+Persons = pd.read_sql_query('SELECT * FROM Persons', conn)
+
+
+
+# CATEGORY: sql, query, pandas, dataframe, database, connection
+# DESCRIPTION: read in multiple files based on conditional formatting
+master_df = []
+
+for yy in range(11,15):
+    filename = "statoutflow{}{}".format(yy,yy+1)
+    df = pd.read_csv(fn(filename),encoding='latin-1')
+    df['year'] = 2000 +yy
+    
+# CATEGORY: apply, function, filter, mask
+# DESCRIPTION: create a mask, apply to a df and pull only select columns
+def ends_in (pattern, s):
+    import re
+    return re.match ("^.*{}$".format (pattern), s) is not None
+
+def ends_in_total_migration (s):
+    return ends_in ('Total Migration[ -]US and Foreign', s)
+
+def ends_in_non_migrants (s):
+    return ends_in ('Non-migrants', s)
+
+
+migrants = StateOutFlows['y2_state_name'].apply (ends_in_total_migration)
+migrants.head(5)
+
+
+Migrated = StateOutFlows[migrants][['y2_state', 'year', 'n1']] \
+           .rename (columns={'y2_state': 'st', 'n1': 'migrated'})
+Migrated
+    alldf.append(df)
+    
+# CATEGORY: list, extend, list of lists, function
+# DESCRIPTION: Invoke the extend function to flatten two lists as a single list
+my_list = ['geeks', 'for'] 
+another_list = [6, 0, 4, 1] 
+my_list.extend(another_list) 
+print(my_list) 
+
+
+# CATEGORY: pandas, panda, dataframe 
+# DESCRIPTION: consolidate all dataframe columns or column as a single array
+# importing pandas as pd 
+import pandas as pd 
+  
+# Creating the DataFrame 
+df = pd.DataFrame({'Weight':[45, 88, 56, 15, 71], 
+                   'Name':['Sam', 'Andrea', 'Alex', 'Robin', 'Kia'], 
+                   'Age':[14, 25, 55, 8, 21]}) 
+>>>>>>> baab3d9c935333e9e0b9e5f0f5d139997e1566a7

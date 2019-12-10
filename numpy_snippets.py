@@ -13,6 +13,45 @@ print(a)
 
 n = 1000000
 
+# CATEGORY: numpy, random, random int, create
+# DESCRIPTION: Create a random numpy array
+import numpy as np
+ray_1 = np.random.randint(10, size =(3,3,3))
+print(ray_1)
+
+ray_1.shape # return shape of array
+ray_1.dtype.name # returns data type of array
+
+ray_2 = np.random.randint(5, size=(3,3,3))
+print(ray_2)
+
+ray_add = ray_1 + ray_2
+print(ray_add)
+
+ray_minus = ray_1 - ray_2
+print(ray_minus)
+
+ray_multiply = ray_1 * ray_2
+print(ray_multiply)
+
+ray_exp = ray_1 ** ray_2
+print(ray_exp)
+
+ray_1
+ray_1.T
+
+ray_1.sum()
+ray_1.min()
+
+x = np.array([1,2,3,4,5,6,7,8,9])
+
+x_0 = x[:5]
+print(x_0)
+
+x_1 = x[5:]
+print(x_1)
+
+
 # Exercise 10.0 -------------------------------------------- #
 
 # Test time for creating i^2 calculation via list call
@@ -135,3 +174,75 @@ a = np.array([[1,2], [3,4]])
 b = np.array([[11,12], [13,14]])
 print(np.dot(a,b))
 # [[1*11+2*13, 1*12+2*14],[3*11+4*13, 3*12+4*14]]
+
+
+# CATEGORY: pandas, panda, dataframe, column, names, header
+# DESCRIPTION: create an empty dataframe with only column  names
+import pandas as pd
+df = pd.DataFrame(columns=['A','B','C','D','E','F','G'])
+
+
+
+# CATEGORY: numpy, indices, find zero, zero, 
+# DESCRIPTION: Find the indices of array elements that are non-zero, grouped by element.
+import numpy as np
+x = np.arange(6).reshape(2,3)
+x
+np.argwhere(x>1)
+
+# CATEGORY: numpy, indices, linspace, meshgrid
+# DESCRIPTION: Apply linspace and meshgrid functions for two given matrices
+from numpy import linspace, meshgrid
+x0 = linspace(-2,2,11)
+x1 = linspace(-2,2,11)
+
+X0, X1 = meshgrid(x0, x1)
+
+# CATEGORY: numpy, colvec, transpose, vector, transform
+# DESCRIPTION: Convert a vector from a row format to a column format
+import numpy as np
+z_array = np.array([1,2,3,4,5])
+print(z_array)
+
+z_colvec = np.reshape(z_array, (len(z_array), 1))
+print(z_colvec)
+
+
+# # CATEGORY: scipy, k-means, cluster, clustering, scatterplot
+# DESCRIPTION: Invoke the kmeans2 clustering function
+from scipy.cluster.vq import kmeans2
+import random 
+df_length = 50
+
+float_list = [round(random.uniform(10,0),2) for float in range(df_length)]
+float_list 
+
+int_list = [random.randint(0,100) for int in range(df_length)]
+int_list
+
+df = pd.DataFrame({'float_values':float_list, 'int_values':int_list})
+df
+
+centers, labels = kmeans2(df[['float_values', 'int_values']], k=2)
+
+def make_scatter_plot (df, x="x_1", y="x_2", hue="label",
+                       palette={0: "red", 1: "olive", 2: "blue", 3: "green"},
+                       size=5,
+                       centers=None):
+    from seaborn import lmplot
+    from matplotlib.pyplot import scatter
+    if (hue is not None) and (hue in df.columns):
+        lmplot (x=x, y=y, hue=hue, data=df, palette=palette,
+                fit_reg=False)
+    else:
+        lmplot (x=x, y=y, data=df, fit_reg=False)
+
+    if centers is not None:
+        scatter (centers[:,0], centers[:,1],
+                 marker=u'*', s=500,
+                 c=[palette[0], palette[1]])
+        
+make_scatter_plot (df, x='float_values', y='int_values', centers=centers)
+
+
+
