@@ -221,3 +221,19 @@ L = range(n)
 # DESCRIPTION: use a left and right parameter for range function
 for k in range(2, int(sqrt(n))+1):
     is_prime[2*k::k] = False
+    
+    
+    emails = []
+    for items in data:
+        emails.append(items['email']['working'])
+    emails.sort(reverse = True)
+    return emails
+
+# CATEGORY: for, loop, range, list, sort
+# DESCRIPTION: a function to append values to an empty list and sort
+def sort_list():
+    emails = [] 
+    for items in data:
+        emails.append(items)
+    emails.sort(reverse = True)
+    return emails
