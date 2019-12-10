@@ -237,3 +237,9 @@ def sort_list():
         emails.append(items)
     emails.sort(reverse = True)
     return emails
+
+# CATEGORY: split, nested, JSON, column dataframe
+# DESCRIPTION: split nested JSON data in a column to separate columns
+df = pd.DataFrame({'a':[1,2,3], 'b':[{'c':1}, {'d':3}, {'c':5, 'd':6}]})
+df
+df['b'].apply(pd.Series)
