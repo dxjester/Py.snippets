@@ -427,4 +427,10 @@ import pandas as pd
 df = pd.DataFrame({'Weight':[45, 88, 56, 15, 71], 
                    'Name':['Sam', 'Andrea', 'Alex', 'Robin', 'Kia'], 
                    'Age':[14, 25, 55, 8, 21]}) 
->>>>>>> baab3d9c935333e9e0b9e5f0f5d139997e1566a7
+
+x = 4
+y = 3
+
+sorted([x,y])
+
+

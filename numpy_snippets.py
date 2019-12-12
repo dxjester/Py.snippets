@@ -51,6 +51,8 @@ print(x_0)
 x_1 = x[5:]
 print(x_1)
 
+ray_3 =  np.random.randint(-100,100, size = (4,4,4))
+print(ray_3)
 
 # Exercise 10.0 -------------------------------------------- #
 
